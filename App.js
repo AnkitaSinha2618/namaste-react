@@ -2,25 +2,64 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 //React Element
-
-const number = 10000; //js code inside jsx
-const element = <span>React Element</span> //React element in jsx
-const Title = () => (<h1 id="heading" className="head">
-    {element}
-    Namaste React using JSX
-    </h1>
-    ); //React element inside jsx
-
-//Functional component
-const HeadingComponent = () =>(
-    <div id="container">
-        <Title/>
-        <h2>{number * number}</h2>  
-        {console.log(number)} 
-        <h1 className="heading">Namaste React Functional Component</h1>
+const Header = () => {
+  return (
+    <div className="header">
+      <div className="logo-container">
+        <img
+          className="logo"
+          src="https://www.logodesign.net/logo/smoking-burger-with-lettuce-3624ld.png"
+        />
+      </div>
+      <div className="nav-items">
+        <ul>
+          <li>Home</li>
+          <li>About Us</li>
+          <li>Contact Us</li>
+          <li>Cart</li>
+        </ul>
+      </div>
     </div>
-);
+  );
+};
+const RestaurantCard = () => {
+  return (
+  <div className="rest-card" style={{backgroundColor:"#f0f0f0"}}>
+    <img className="res-logo" alt="rest-log" src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/e0839ff574213e6f35b3899ebf1fc597"/>
+    <h4>Chinese Wok</h4>
+    <h5>Chinese,Asian</h5>
+    <h5>4.4 stars</h5>
+    <h5>30 minutes</h5>
+  </div>
+  );
+};
+
+const Body = () => {
+  return (
+    <div className="body">
+      <div className="search">Search</div>
+      <div className="rest-container">
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+      </div>
+    </div>
+  );
+};
+
+const AppLayout = () => {
+  return (
+    <div className="app">
+      <Header />
+      <Body />
+    </div>
+  );
+};
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<HeadingComponent/>);
-
+root.render(<AppLayout />);
