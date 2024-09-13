@@ -2,10 +2,11 @@ import RestaurantCard from "./RestaurantCard";
 import resList from "../utils/mockData";
 import { useState } from "react";
 import { useEffect } from "react";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
   //Local State variable - Super Powerful variable
-  const [listofRestautrants, setListofRestautrant] = useState(resList);
+  const [listofRestautrants, setListofRestautrant] = useState([]);
 
   useEffect(()=>{
     fetchData();    
@@ -16,13 +17,11 @@ const Body = () => {
      const json = await data.json();
      console.log(json);
      console.log(json.data.cards[4].card.card.gridElements);
-     
-
-     setListofRestautrant(
-      json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
-     )
-     
+     setListofRestautrant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)   
   }
+  // if(listofRestautrants.length === 0){
+  //   return <Shimmer/>
+  // }
 
   //normal js variables
   // let listofRestautrantsjs = [
@@ -83,7 +82,12 @@ const Body = () => {
   //     }
   //   }
   // ]
-  return (
+
+  //use of ternary operator 
+  return listofRestautrants.length === 0 ?( 
+    <Shimmer/>
+    ):
+    (
     <div className="body">
       <div className="filter">
         <button
