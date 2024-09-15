@@ -1,16 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { LOGO_URL } from "../utils/constants";
 
 const Header = () => {
   // let btnName = "Login";
    const [reactBtn, setreactBtn]= useState("Login");
    console.log("header component render");
-   
-
-   const logout = ()=>{
-      setreactBtn("Logout")
-   }
     return (
+
       <div className="header">
         <div className="logo-container">
           <img
