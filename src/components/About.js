@@ -22,7 +22,9 @@ class About extends Component{
             <h1>About</h1>
             <h2>This is Namaste react</h2>
             {/* <User name={"Ankita Sinha function"}/> */}
-            <UserClass name={"Ankita Sinha class"} location={"Hyderabad class"}/>
+            <UserClass name={"1st class"} location={"Hyderabad class"}/>
+            <UserClass name={"2nd class"} location={"Hyderabad class"}/>
+            <UserClass name={"3rd class"} location={"Hyderabad class"}/>
             </div>  
         )
     }
