@@ -35,9 +35,9 @@ const Body = () => {
   //To check offline or online
   const onlineStatus = useOnlineStatus();
   if(onlineStatus === false){
-    return <h1>Looks like you are offline, Please check your Internet connection</h1>
+    return <h1>Looks like you are offline, Please check your Internet connection;</h1>
   }
-  
+
   //use of ternary operator
   return listofRestautrants.length === 0 ? (
     <Shimmer />
