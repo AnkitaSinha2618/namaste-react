@@ -18,4 +18,20 @@ const RestaurantCard = (props) => {
   </div>
   );
 };
+
+//Higher order comonent
+//input- RestaurantCard ==> RestaurantCardOffer
+
+export const withOfferLabel = (RestaurantCard) =>{
+  return (props)=>{
+    console.log(props);
+    
+    return (
+      <div>
+        <label className="offerLabel">Offer</label>
+        <RestaurantCard {...props}/>
+      </div>
+    )
+  }
+}
 export default RestaurantCard;

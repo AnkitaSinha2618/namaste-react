@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, {withOfferLabel} from "./RestaurantCard";
 import resList from "../utils/mockData";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -7,12 +7,17 @@ import { Link } from "react-router-dom";
 import { RESTAURANT_URL } from "../utils/constants";
 import useOnlineStatus from "../utils/useOnlineStatus";
 
+
 const Body = () => {
   //Local State variable - Super Powerful variable
   const [listofRestautrants, setListofRestautrant] = useState([]);
   const [filteredRestautrants, setFilteredRestautrants] = useState([]);
   const [searchText, setsearchText] = useState("");
-  console.log("body component render");
+
+  const RestaurantCardOffer = withOfferLabel(RestaurantCard);
+
+  console.log("body component render", listofRestautrants);
+
 
   useEffect(() => {
     fetchData();
@@ -80,7 +85,14 @@ const Body = () => {
       </div>
       <div className="rest-container">
         {filteredRestautrants.map((restaurant) => (
-          <Link to={"/restaurants/"+restaurant.info.id} key={restaurant.info.id} style={{ textDecoration: 'none' }}><RestaurantCard   resData={restaurant}/></Link> 
+          <Link to={"/restaurants/"+restaurant.info.id} key={restaurant.info.id} style={{ textDecoration: 'none' }}>
+
+            {/* if restraurant has offer than add a offer labael to it */}
+             {restaurant.info.aggregatedDiscountInfoV3 ? (
+             <RestaurantCardOffer resData={restaurant}/>):(
+              <RestaurantCard  resData={restaurant}/>
+             )}
+          </Link> 
         ))}
       </div>
     </div>

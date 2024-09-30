@@ -61,3 +61,12 @@
     padding: 10px;
     border: 1px solid black;
 }
+.offerLabel{
+    background-color: black;
+    color: white;
+    margin: 2px;
+    padding: 2px;
+    border: 2px black solid;
+    position:absolute;
+    border-radius: 5px;
+}
